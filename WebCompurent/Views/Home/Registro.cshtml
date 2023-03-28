@@ -1,0 +1,54 @@
+﻿@model ModeloCompurrent.ModeloRegistro
+@{
+    ViewBag.Title = "Registro de Usuario";
+}
+<!--Script de validaciones para Registro-->
+<script src="~/Scripts/ValidacionesFormularios.js"></script>
+
+<div class="panel panel-default text-center">
+    <div class="panel-heading" style="background-color: #FFB833; font-family: 'Montserrat', sans-serif; font-size: 3em; font-weight: 600; letter-spacing: 0.1em">
+        REGISTRAR USUARIO
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Registro", "Home", FormMethod.Post))
+        {
+            @Html.ValidationSummary(false)
+            if (TempData["mensaje"] != null)
+            {
+                <script>alert('@TempData["mensaje"]');</script>
+            }
+            <table class="table table-bordered" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:medium">
+                <tr>
+                    <td>@Html.LabelFor(m => m.NumIdentificacion, "Número de Identificación")</td>
+                    <td>@Html.TextBoxFor(m => m.NumIdentificacion, new { @class = "form-control", type = "number" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Contrasena, "Contraseña")</td>
+                    <td>@Html.PasswordFor(m => m.Contrasena, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Nombre)</td>
+                    <td>@Html.TextBoxFor(m => m.Nombre, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Correo)</td>
+                    <td>@Html.TextBoxFor(m => m.Correo, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Direccion, "Dirección")</td>
+                    <td>@Html.TextBoxFor(m => m.Direccion, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Ciudad)</td>
+                    <td>@Html.TextBoxFor(m => m.Ciudad, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(m => m.Telefono, "Teléfono")</td>
+                    <td>@Html.TextBoxFor(m => m.Telefono, new { @class = "form-control", type = "number" })</td>
+                </tr>
+            </table>
+
+            <button type="submit" onclick="ValidarCreacion(event)" class="btn btn-primary">Registrar usuario</button>
+        }
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model ModeloCompurrent.ModeloRegistro
+@{
+    ViewBag.Title = "Bienvenida";
+}
+
+<div class="panel panel-default text-center">
+    <div class="panel-heading" style="background-color: #FFB833; font-family: 'Montserrat', sans-serif; font-size: 3em; font-weight: 600; letter-spacing: 0.1em">
+        WELCOME: <label style="font-family: 'Montserrat',sans-serif; font-size: xx-large; display: inline-block; width: auto; ">@Model.Nombre</label>
+    </div>
+    <div class="panel-body">
+        <br />
+        <table class="table table-bordered" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:medium">
+            <tr>
+                <td>Número de identificación:</td>
+                <td>@Model.NumIdentificacion</td>
+            </tr>
+            <tr>
+                <td>Contraseña:</td>
+                <td>@Model.Contrasena</td>
+            </tr>
+            <tr>
+                <td>Correo electrónico:</td>
+                <td>@Model.Correo</td>
+            </tr>
+            <tr>
+                <td>Dirección:</td>
+                <td>@Model.Direccion</td>
+            </tr>
+            <tr>
+                <td>Ciudad:</td>
+                <td>@Model.Ciudad</td>
+            </tr>
+            <tr>
+                <td>Teléfono:</td>
+                <td>@Model.Telefono</td>
+            </tr>
+        </table>
+        @Html.ActionLink("Cerrar Sesión", "Login", "Home", null, new { @class = "btn btn-danger" })
+    </div>
+</div>
